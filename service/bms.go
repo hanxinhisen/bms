@@ -20,6 +20,7 @@ func main() {
 		panic(fmt.Sprintf("初始化数据库失败,%s", err.Error()))
 	}
 	bms := gin.Default()
+	bms.Use(middleware.Cors())
 	bms.Use(middleware.LogHandleStatus())
 	bmsV1 := bms.Group("/v1")
 	{
