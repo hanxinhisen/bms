@@ -57,7 +57,7 @@ func GetBookInfoByID(id int) (book *model.Book, err error) {
 func GetBookList() (books []*model.Book, err error) {
 	books = make([]*model.Book, 0)
 
-	sqlStr := fmt.Sprintf("select id,name,author,price,publish_date,create_at,update_at from %s", config.DbConfig.TableName)
+	sqlStr := fmt.Sprintf("select id,name,author,price,publish_date,create_at,update_at from %s order by publish_date", config.DbConfig.TableName)
 	rows, err := DB.Query(sqlStr)
 	if err != nil {
 		return
